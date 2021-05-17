@@ -18,7 +18,7 @@ const Search = () => {
     <Container>
       <Header>Live search</Header>
       <Label htmlFor="search-input">
-        <Input type="text" id="search-input" value="" />
+        <Input type="text" id="search-input" value="" placeholder="Search" />
       </Label>
     </Container>
   );
