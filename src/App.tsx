@@ -41,10 +41,8 @@ const App = () => {
   }, []);
 
   let filteredUsers = users.filter(user =>
-    user.name.includes(searchName.toLowerCase())
+    user.name.toLowerCase().includes(searchName.toLowerCase())
   );
-
-  filteredUsers.forEach(user => (user.name = user.name.toLowerCase()));
 
   return (
     <Container>
