@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const List = styled.ul``;
-const Item = styled.li``;
+const Item = styled.li`
+  text-transform: capitalize;
+`;
 
 type Users = {
   id: number;
