@@ -8,7 +8,7 @@ const Search = () => {
   return (
     <Container>
       <Label htmlFor="search-input">
-        <Input type="text" id="search-input" value="" placeholder="Search" />
+        <Input type="text" id="search-input" placeholder="Search" />
       </Label>
     </Container>
   );

@@ -4,6 +4,7 @@ import axios from 'axios';
 import Search from './Search';
 
 const Container = styled.div``;
+const Header = styled.h1``;
 
 type Users = {
   id: number;
@@ -16,12 +17,11 @@ const App = () => {
   const [users, setUsers] = useState<Users[] | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const usersUrl = 'https://jsonplaceholder.typicode.com/users';
-
+  const urlUsers = 'https://jsonplaceholder.typicode.com/users';
   useEffect(() => {
     const fetchResult = async () => {
       try {
-        const result = await axios.get(usersUrl);
+        const result = await axios.get(urlUsers);
         setUsers(result.data);
         setLoading(false);
       } catch (error) {
@@ -30,8 +30,10 @@ const App = () => {
     };
     fetchResult();
   }, []);
+
   return (
     <Container>
+      {loading ? <Header>Loading...</Header> : <Header>LiveSearch</Header>}
       <Search />
     </Container>
   );
