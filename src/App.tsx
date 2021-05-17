@@ -1,8 +1,13 @@
+import styled from 'styled-components';
+import Search from './Search';
+
+const Container = styled.div``;
+
 const App = () => {
   return (
-    <div className="App">
-      <h1>Hello</h1>
-    </div>
+    <Container>
+      <Search />
+    </Container>
   );
 };
 
