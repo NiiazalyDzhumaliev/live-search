@@ -48,6 +48,10 @@ const App = () => {
     user.name.toLowerCase().includes(searchName.toLowerCase())
   );
 
+  const handleClick = (username: string) => {
+    setSearchName(username);
+  };
+
   return (
     <Container>
       {loading ? <Header>Loading...</Header> : <Header>LiveSearch</Header>}
@@ -57,11 +61,14 @@ const App = () => {
             type="text"
             id="search-input"
             placeholder="Search"
+            value={searchName}
             onChange={e => handleInputChange(e)}
           />
         </Label>
       </InputContainer>
-      {searchName !== '' ? <DropDown users={filteredUsers} /> : null}
+      {searchName !== '' ? (
+        <DropDown users={filteredUsers} handleClick={handleClick} />
+      ) : null}
     </Container>
   );
 };
