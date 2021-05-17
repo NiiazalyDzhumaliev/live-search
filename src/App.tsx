@@ -3,7 +3,11 @@ import styled from 'styled-components';
 import axios from 'axios';
 import DropDown from './DropDown';
 
-const Container = styled.div``;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 const Header = styled.h1``;
 const InputContainer = styled.div``;
 const Label = styled.label``;
