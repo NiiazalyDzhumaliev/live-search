@@ -14,11 +14,28 @@ const Search = () => {
     message: '',
   });
 
+  const handleInputChange = (event: React.FormEvent<HTMLInputElement>) => {
+    const element = event.currentTarget as HTMLInputElement;
+    const query = element.value;
+    setState({
+      ...state,
+      query,
+      loading: true,
+      message: '',
+    });
+  };
+
   return (
     <Container>
       <Header>Live search</Header>
       <Label htmlFor="search-input">
-        <Input type="text" id="search-input" value="" placeholder="Search" />
+        <Input
+          type="text"
+          id="search-input"
+          value=""
+          placeholder="Search"
+          onChange={event => handleInputChange(event)}
+        />
       </Label>
     </Container>
   );
