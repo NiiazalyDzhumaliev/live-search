@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import Search from './Search';
+import DropDown from './DropDown';
 
 const Container = styled.div``;
 const Header = styled.h1``;
@@ -14,7 +15,7 @@ type Users = {
 };
 
 const App = () => {
-  const [users, setUsers] = useState<Users[] | null>(null);
+  const [users, setUsers] = useState<Users[]>([]);
   const [loading, setLoading] = useState(true);
 
   const urlUsers = 'https://jsonplaceholder.typicode.com/users';
@@ -35,6 +36,7 @@ const App = () => {
     <Container>
       {loading ? <Header>Loading...</Header> : <Header>LiveSearch</Header>}
       <Search />
+      <DropDown users={users} />
     </Container>
   );
 };
