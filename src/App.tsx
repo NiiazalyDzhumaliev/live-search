@@ -57,7 +57,7 @@ const App = () => {
           />
         </Label>
       </InputContainer>
-      <DropDown users={filteredUsers} />
+      {searchName !== '' ? <DropDown users={filteredUsers} /> : null}
     </Container>
   );
 };
