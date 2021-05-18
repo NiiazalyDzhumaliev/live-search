@@ -1,10 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const List = styled.ul``;
+const List = styled.ul`
+  min-width: 200px;
+  border: 1px solid lightgrey;
+  list-style-type: none;
+  padding: 0;
+`;
 const Item = styled.li`
   cursor: pointer;
   text-transform: capitalize;
+`;
+
+const UserImage = styled.img`
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
 `;
 
 type Photos = {
@@ -51,8 +62,10 @@ const UsersList: React.FC<UsersListProps> = props => {
     <List>
       {usersWithUrl.map(user => (
         <Item key={user.id} onClick={() => handleClick(user.name)}>
-          <img alt="user-thumbnail" src={user.url} />
-          {user.name}
+          <UserImage alt="user-thumbnail" src={user.url} />
+          <span>{user.name}</span>
+          <br />
+          <span>{`@${user.username}`}</span>
         </Item>
       ))}
     </List>

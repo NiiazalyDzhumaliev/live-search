@@ -7,11 +7,37 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 100px;
 `;
-const Header = styled.h1``;
-const InputContainer = styled.div``;
+
+const InputContainer = styled.div`
+  position: relative;
+`;
 const Label = styled.label``;
-const Input = styled.input``;
+const Input = styled.input`
+  height: 30px;
+  border: none;
+  border-bottom: 1px solid grey;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  padding-left: 40px;
+  background-color: #f9f9f9;
+  ::placeholder {
+    font-size: 0.7rem;
+    color: #ccc5c4;
+  }
+  &:focus {
+    outline: none;
+  }
+`;
+const SearchIcon = styled.img`
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+`;
 
 type Users = {
   id: number;
@@ -31,7 +57,6 @@ type Photos = {
 
 const App = () => {
   const [users, setUsers] = useState<Users[]>([]);
-  const [loading, setLoading] = useState(true);
   const [searchName, setSearchName] = useState('');
   const [photos, setPhotos] = useState<Photos[]>([]);
 
@@ -47,7 +72,6 @@ const App = () => {
       try {
         const userResult = await axios.get(urlUsers);
         setUsers(userResult.data);
-        setLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -78,7 +102,6 @@ const App = () => {
 
   return (
     <Container>
-      {loading ? <Header>Loading...</Header> : <Header>LiveSearch</Header>}
       <InputContainer>
         <Label htmlFor="search-input">
           <Input
@@ -88,6 +111,7 @@ const App = () => {
             value={searchName}
             onChange={e => handleInputChange(e)}
           />
+          <SearchIcon alt="magnify-glass" src="loupe.svg" />
         </Label>
       </InputContainer>
       {searchName !== '' ? (
