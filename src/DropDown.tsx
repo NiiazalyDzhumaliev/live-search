@@ -9,7 +9,8 @@ const List = styled.ul`
 `;
 const Item = styled.li`
   display: flex;
-  padding: 5px 0;
+  padding: 3px 0;
+  margin: 5px 0;
   align-items: center;
   cursor: pointer;
   text-transform: capitalize;
