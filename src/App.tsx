@@ -20,10 +20,19 @@ type Users = {
   email: string;
 };
 
+type Photos = {
+  id: number;
+  albumId: number;
+  title: string;
+  url: string;
+  thumbnailUrl: string;
+};
+
 const App = () => {
   const [users, setUsers] = useState<Users[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchName, setSearchName] = useState('');
+  const [photos, setPhotos] = useState<Photos[]>([]);
 
   const handleInputChange = (e: { target: { value: string } }) => {
     const value = e.target.value;
@@ -31,11 +40,12 @@ const App = () => {
   };
 
   const urlUsers = 'https://jsonplaceholder.typicode.com/users';
+
   useEffect(() => {
     const fetchResult = async () => {
       try {
-        const result = await axios.get(urlUsers);
-        setUsers(result.data);
+        const userResult = await axios.get(urlUsers);
+        setUsers(userResult.data);
         setLoading(false);
       } catch (error) {
         console.log(error);
@@ -43,6 +53,21 @@ const App = () => {
     };
     fetchResult();
   }, []);
+
+  useEffect(() => {
+    const fetchResult = async () => {
+      const photosArray: Photos[] = [];
+      users.map(async user => {
+        const photoUrl = `https://jsonplaceholder.typicode.com/photos/${user.id}`;
+        const singlePhoto = await axios.get(photoUrl);
+        photosArray.push(singlePhoto.data);
+      });
+      setPhotos(photosArray);
+    };
+    fetchResult();
+  }, [users]);
+
+  console.log(photos);
 
   let filteredUsers = users.filter(user =>
     user.name.toLowerCase().includes(searchName.toLowerCase())
