@@ -3,13 +3,13 @@ import styled from 'styled-components';
 
 const List = styled.ul`
   margin: 0;
-  width: 205px;
+  width: 204px;
   list-style-type: none;
   padding: 0;
 `;
 const Item = styled.li`
   display: flex;
-  padding: 3px 0;
+  padding: 3px 0 3px 5px;
   margin: 5px 0;
   align-items: center;
   cursor: pointer;
