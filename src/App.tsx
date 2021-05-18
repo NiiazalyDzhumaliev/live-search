@@ -84,13 +84,17 @@ const App = () => {
 
   useEffect(() => {
     const fetchResult = async () => {
-      const photosArray: Photos[] = [];
-      users.map(async user => {
-        const photoUrl = `https://jsonplaceholder.typicode.com/photos/${user.id}`;
-        const singlePhoto = await axios.get(photoUrl);
-        photosArray.push(singlePhoto.data);
-      });
-      setPhotos(photosArray);
+      try {
+        const photosArray: Photos[] = [];
+        users.map(async user => {
+          const photoUrl = `https://jsonplaceholder.typicode.com/photos/${user.id}`;
+          const singlePhoto = await axios.get(photoUrl);
+          photosArray.push(singlePhoto.data);
+        });
+        setPhotos(photosArray);
+      } catch (error) {
+        console.log(error);
+      }
     };
     fetchResult();
   }, [users]);
