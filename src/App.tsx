@@ -18,6 +18,7 @@ type Users = {
   name: string;
   username: string;
   email: string;
+  url?: string;
 };
 
 type Photos = {
@@ -67,9 +68,7 @@ const App = () => {
     fetchResult();
   }, [users]);
 
-  console.log(photos);
-
-  let filteredUsers = users.filter(user =>
+  const filteredUsers = users.filter(user =>
     user.name.toLowerCase().includes(searchName.toLowerCase())
   );
 
@@ -92,7 +91,11 @@ const App = () => {
         </Label>
       </InputContainer>
       {searchName !== '' ? (
-        <DropDown users={filteredUsers} handleClick={handleClick} />
+        <DropDown
+          photos={photos}
+          users={filteredUsers}
+          handleClick={handleClick}
+        />
       ) : null}
     </Container>
   );
