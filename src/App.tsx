@@ -65,7 +65,7 @@ const App = () => {
   const handleInputChange = (e: { target: { value: string } }) => {
     const value = e.target.value;
     setSearchName(value);
-    setShowDropDown(prevState => !prevState);
+    setShowDropDown(true);
   };
 
   const urlUsers = 'https://jsonplaceholder.typicode.com/users';
