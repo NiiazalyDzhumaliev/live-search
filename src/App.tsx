@@ -7,7 +7,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 100px;
+  overflow: hidden;
+  margin-top: 20px;
 `;
 
 const InputContainer = styled.div`
@@ -59,10 +60,12 @@ const App = () => {
   const [users, setUsers] = useState<Users[]>([]);
   const [searchName, setSearchName] = useState('');
   const [photos, setPhotos] = useState<Photos[]>([]);
+  const [showDropDown, setShowDropDown] = useState(true);
 
   const handleInputChange = (e: { target: { value: string } }) => {
     const value = e.target.value;
     setSearchName(value);
+    setShowDropDown(prevState => !prevState);
   };
 
   const urlUsers = 'https://jsonplaceholder.typicode.com/users';
@@ -98,6 +101,7 @@ const App = () => {
 
   const handleClick = (username: string) => {
     setSearchName(username);
+    setShowDropDown(prevState => !prevState);
   };
 
   return (
@@ -114,7 +118,7 @@ const App = () => {
           <SearchIcon alt="magnify-glass" src="loupe.svg" />
         </Label>
       </InputContainer>
-      {searchName !== '' ? (
+      {searchName !== '' && showDropDown ? (
         <DropDown
           photos={photos}
           users={filteredUsers}

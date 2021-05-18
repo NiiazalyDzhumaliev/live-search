@@ -2,20 +2,39 @@ import React from 'react';
 import styled from 'styled-components';
 
 const List = styled.ul`
-  min-width: 200px;
-  border: 1px solid lightgrey;
+  margin: 0;
+  width: 205px;
   list-style-type: none;
   padding: 0;
 `;
 const Item = styled.li`
+  display: flex;
+  padding: 5px 0;
+  align-items: center;
   cursor: pointer;
   text-transform: capitalize;
+  &:hover {
+    background-color: #f2f2f2;
+  }
 `;
 
 const UserImage = styled.img`
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
   border-radius: 50%;
+`;
+
+const UserName = styled.span`
+  font-size: 0.7rem;
+  color: lightgrey;
+`;
+const Name = styled.span`
+  font-size: 0.85rem;
+`;
+
+const UserInfo = styled.div`
+  line-height: 0.8;
 `;
 
 type Photos = {
@@ -63,9 +82,11 @@ const UsersList: React.FC<UsersListProps> = props => {
       {usersWithUrl.map(user => (
         <Item key={user.id} onClick={() => handleClick(user.name)}>
           <UserImage alt="user-thumbnail" src={user.url} />
-          <span>{user.name}</span>
-          <br />
-          <span>{`@${user.username}`}</span>
+          <UserInfo>
+            <Name>{user.name}</Name>
+            <br />
+            <UserName>{`@${user.username}`}</UserName>
+          </UserInfo>
         </Item>
       ))}
     </List>
