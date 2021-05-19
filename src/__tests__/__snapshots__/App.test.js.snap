@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot test testing app component 1`] = `
+<div
+  className="sc-gKAaRy cOqsVP"
+>
+  <div
+    className="sc-iCoGMd grrPaj"
+  >
+    <label
+      className="sc-fujyAs"
+      htmlFor="search-input"
+    >
+      <input
+        className="sc-pNWdM bpZxol"
+        id="search-input"
+        onChange={[Function]}
+        placeholder="Search"
+        type="text"
+        value=""
+      />
+      <img
+        alt="magnify-glass"
+        className="sc-jrsJWt IrIFW"
+        src="loupe.svg"
+      />
+    </label>
+  </div>
+</div>
+`;
