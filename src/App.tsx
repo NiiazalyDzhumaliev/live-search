@@ -16,7 +16,9 @@ const InputContainer = styled.div`
 `;
 const Label = styled.label``;
 const Input = styled.input`
-  height: 30px;
+  box-sizing: border-box;
+  width: 343px;
+  height: 56px;
   border: none;
   border-bottom: 1px solid grey;
   border-top-left-radius: 6px;
@@ -24,7 +26,7 @@ const Input = styled.input`
   padding-left: 40px;
   background-color: #f9f9f9;
   ::placeholder {
-    font-size: 0.7rem;
+    font-size: 16px;
     color: #ccc5c4;
   }
   &:focus {
@@ -36,8 +38,8 @@ const SearchIcon = styled.img`
   top: 50%;
   left: 20px;
   transform: translate(-50%, -50%);
-  width: 12px;
-  height: 12px;
+  width: 17px;
+  height: 17px;
 `;
 
 type Users = {

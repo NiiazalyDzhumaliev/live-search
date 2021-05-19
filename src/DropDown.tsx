@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const List = styled.ul`
   margin: 0;
-  width: 204px;
+  width: 343px;
   list-style-type: none;
   padding: 0;
 `;
@@ -12,6 +12,7 @@ const Item = styled.li`
   padding: 3px 0 3px 5px;
   margin: 5px 0;
   align-items: center;
+  height: 48px;
   cursor: pointer;
   text-transform: capitalize;
   &:hover {
@@ -20,22 +21,22 @@ const Item = styled.li`
 `;
 
 const UserImage = styled.img`
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   margin-right: 8px;
   border-radius: 50%;
 `;
 
 const UserName = styled.span`
-  font-size: 0.7rem;
+  font-size: 12px;
   color: lightgrey;
 `;
 const Name = styled.span`
-  font-size: 0.85rem;
+  font-size: 14px;
 `;
 
 const UserInfo = styled.div`
-  line-height: 0.8;
+  line-height: 16px;
 `;
 
 type Photos = {
