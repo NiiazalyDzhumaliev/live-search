@@ -18,7 +18,7 @@ I spent about 5 hours of dedicated time to accomplish it
 - React,
 - axios,
 - CSS,
-- JavaScript,
+- TypeScript,
 - npm,
 - webpack
 
@@ -28,7 +28,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-- A compatible browser with HTML, CSS and JavaScript.
+- A compatible browser with HTML, CSS and TypeScript.
 
 ### Install
 
